@@ -15,8 +15,7 @@ class Profile extends Model
     }
 
     public function profileImage(){
-        $imagePath = ($this->image) ? $this->image : 'profile/1024px-No_image_available.svg.png';
-        return '/storage/' . $imagePath;
+        return ($this->image) ? $this->image : '/storage/profile/1024px-No_image_available.svg.png';
     }
 
     public function followers(){

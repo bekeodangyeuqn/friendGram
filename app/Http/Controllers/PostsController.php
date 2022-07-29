@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
@@ -32,12 +33,19 @@ class PostsController extends Controller
             'caption' => 'required',
             'image' => ['required','image'],
         ]);
-        $imagePath = request('image')->store('uploads','public');
-        $image = Image::make(public_path('storage/' . $imagePath))->fit(1200,1200);
-        $image->save();
+        $file = request()->file('image');
+        $imageName = $file->hashName();
+        $image = Image::make($file)->fit(1000,1000);
+        $resource = $image->stream()->detach();
+        //$imagePath = request('image')->store('uploads','s3');
+        $imagePath = Storage::disk('s3')->put(
+            'uploads/' . $imageName,
+            $resource
+        );
+        $imageUrl = "https://friendgram.s3.ap-southeast-1.amazonaws.com/uploads/" . $imageName;
         auth()->user()->posts()->create([
             'caption' => $data['caption'],
-            'image' => $imagePath
+            'image' => $imageUrl
         ]);
         return redirect('/profile/' .auth()->user()->id);
     }

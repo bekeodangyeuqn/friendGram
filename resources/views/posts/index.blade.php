@@ -9,7 +9,7 @@
                     <div class="col offset-2">
                         <p>
                         <span class="font-weight-bold">
-                            <img src="/storage/{{$post->user->profile->image}}" class="rounded-circle w-100 me-2" style="max-width: 40px" alt="">
+                            <img src="{{$post->user->profile->image}}" class="rounded-circle w-100 me-2" style="max-width: 40px" alt="">
                             <a href="\profile\{{$post->user->id}}" class="fw-bold text-decoration-none text-black">{{$post->user->username}}</a>
                         </span>
                         <div>{{$post->caption}}</div>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="row">
                     <a href="/p/{{ $post->id }}" class="col-6 offset-3">
-                        <img src="/storage/{{$post->image}}" alt="" class="w-100">
+                        <img src="{{$post->image}}" alt="" class="w-100">
                     </a>
                 </div>
             </div>

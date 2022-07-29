@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
 
-        <img class="col-sm-7" src="/storage/{{$post->image}}" alt="" style="max-height: 100vh">
+        <img class="col-sm-7" src="{{$post->image}}" alt="" style="max-height: 100vh">
         <div class="col-sm-5">
             <div class="d-flex align-items-center">
                 <img src="{{$post->user->profile->profileImage()}}" class="rounded-circle w-100 me-2" style="max-width: 40px" alt="">
@@ -19,7 +19,6 @@
             <div>{{$post->caption}}</div>
             <hr>
             <h5>Comments</h5>
-
             @include('posts.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])
             <form method="post" action="\c">
                 @csrf
