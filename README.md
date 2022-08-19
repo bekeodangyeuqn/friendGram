@@ -1,66 +1,40 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Giới thiệu về website mạng xã hội FriendGram
+## Giới thiệu chung
+- Bối cảnh: Em làm sản phẩm trong quá trình tìm hiểu và học về Laravel
+- Thời gian: từ 1/2022 đến 2/2022 và từ 6/2022 đên 7/2022 (Có một khoảng thời gian tạm dừng dự án)
+- Chức năng: Là một trang web mạng xã hội đơn giản có thể giúp mọi người kết bạn và kết nối lại gần nhau hơn
+- Tên sản phẩm: FriendGram
+## Các chức năng
+- Tạo tài khoản mới và đăng nhập
+- Tạo bài viết mới (hình ảnh và nội dung)
+- Chỉnh sửa trang cá nhân
+- Theo dõi, Hủy theo dõi người dùng khác
+- Hiển thị ở trang chủ những bài viết của người dùng mà mình đang theo dõi
+- Bình luận bài viết, phản hồi bình luận
+- Hiển thị thông tin người đang theo dõi mình và người mình đang theo dõi
+- Tìm kiếm thông tin người dùng theo tên và bài viết theo nội dung
+## Công nghệ được sử dụng
+- Laravel
+    + Valid thông tin đăng ký
+    + Controller, Model, View
+    + Migration
+- React Js
+    + ReactDOM
+    + useState Hook
+    + Axios
+- Bootstrap
+- Hệ quản trị cơ sở dữ liệu PostgreSQL
+- Deploy web lên Heroku
+- Lưu trữ hình ảnh trên S3 Storage của AWS
+## Vai trò
+Đây là dự án cá nhân do em tự thực hiện có tham khảo qua các kênh thông tin như Youtube, Stackoverflow, Laracasts,...
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- Em thực hiện các công việc như sau:
++ Thiết kế Database
++ Thiết kế giao diện và Front-end
++ Xử lý Controller
++ Upload hình ảnh trong web lên S3 Storage
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Em cảm thấy phần khó nhất trong khi thực hiện dự án này là phần liên quan đến bình luận và phản hồi vì phần này ở phần view em làm hơi mất thời gian và công sức.
+- Link sản phẩm
+https://friendgram.herokuapp.com/
