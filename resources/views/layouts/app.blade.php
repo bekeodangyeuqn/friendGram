@@ -11,6 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -53,6 +55,11 @@
                                 </li>
                             @endif
                         @else
+                            <div class="align-items-center">
+                                <form class="typeahead ms-3 mt-1" role="search">
+                                    <input type="search" name="q" class="form-control search-input" placeholder="Search..." autocomplete="off">
+                                </form>
+                            </div>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -85,5 +92,69 @@
             @yield('content')
         </main>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function($) {
+            var engine1 = new Bloodhound({
+                remote: {
+                    url: '/search/name?value=%QUERY%',
+                    wildcard: '%QUERY%'
+                },
+                datumTokenizer: Bloodhound.tokenizers.whitespace('value'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace
+            });
+
+            var engine2 = new Bloodhound({
+                remote: {
+                    url: '/search/caption?value=%QUERY%',
+                    wildcard: '%QUERY%'
+                },
+                datumTokenizer: Bloodhound.tokenizers.whitespace('value'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace
+            })
+
+            $(".search-input").typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            },[
+                {
+                    source: engine1.ttAdapter(),
+                    name: 'users-name',
+                    display: function (data) {
+                        return data.name
+                    },
+                    templates: {
+                        empty: [
+                            '<div class="header-title">Name</div><div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
+                        ],
+                        header: [
+                            '<div class="header-title">Name</div><div class="list-group search-results-dropdown"></div>'
+                        ],
+                        suggestion: function (data) {
+                            return '<a href="/profile/' + data.id + '" class="list-group-item">' + data.name + '</a>';
+                        }
+                    }
+                },
+                {
+                    source: engine2.ttAdapter(),
+                    name: 'posts-caption',
+                    display: function(data) {
+                        return data.caption;
+                    },
+                    templates: {
+                        empty: [
+                            '<div class="header-title">Post</div><div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
+                        ],
+                        header: [
+                            '<div class="header-title">Post</div><div class="list-group search-results-dropdown"></div>'
+                        ],
+                        suggestion: function (data) {
+                            return '<a href="/p/' + data.id + '" class="list-group-item">' + data.caption + '</a>';
+                        }
+                    }
+                }
+            ])
+        });
+    </script>
 </body>
 </html>

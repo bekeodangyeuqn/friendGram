@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container">
+        <form method="get" action="{{ route('user.search') }}" class="form-inline mr-auto d-flex">
+            <input type="text" name="query" value="{{ isset($searchterm) ? $searchterm : ''  }}" class="form-control col-sm-8"  placeholder="Search users name..." aria-label="Search">
+            <button class="btn btn-primary mx-2" type="submit">Search</button>
+        </form>
         <table class="table table-striped">
             <thead>
             <tr>

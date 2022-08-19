@@ -9,8 +9,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Searchable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -73,5 +75,15 @@ class User extends Authenticatable
 
     public function comments(){
         return $this->hasMany(Comment::class);
+    }
+
+    public function getSearchResult(): SearchResult {
+        $url = route('show', $this->id);
+
+        return new SearchResult(
+            $this,
+            $this->name,
+            $url
+        );
     }
 }

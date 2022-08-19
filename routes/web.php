@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Mail\NewUserWelcomeMail;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ Route::get('/', [App\Http\Controllers\PostsController::class, 'index']);
 Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create']);
 
 Route::get('/users', [App\Http\Controllers\UsersController::class, 'index']);
+Route::get('/users/search',[\App\Http\Controllers\UsersController::class, 'search'])->name('user.search');
 
 Route::post('/p', [App\Http\Controllers\PostsController::class, 'store']);
 Route::get('/p/{post}', [App\Http\Controllers\PostsController::class, 'show']);
@@ -38,6 +40,9 @@ Route::patch('/profile/{user}', [App\Http\Controllers\ProfilesController::class,
 
 Route::get('/followings/{user}', [App\Http\Controllers\FollowingsController::class, 'index']);
 Route::get('/followers/{profile}', [App\Http\Controllers\FollowersController::class, 'index']);
+
+Route::get('/search/name', [App\Http\Controllers\SearchController::class, 'searchByUserName']);
+Route::get('/search/caption', [App\Http\Controllers\SearchController::class, 'searchByPostCaption']);
 
 
 
